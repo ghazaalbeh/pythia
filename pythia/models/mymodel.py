@@ -64,17 +64,17 @@ class MyMODEL(Pythia):
             ["image", "text"],
             [image_embedding_total, text_embedding_total, context_embedding_total],
         )
-		"""
+        """
         - logits: the original predictions of the model
         - logits_q: the predictions from the question-only branch
         - logits_rubi: the updated predictions from the model by the mask.
-    	=> Use `logits_rubi` and `logits_q` for the loss
-    	"""
+        => Use `logits_rubi` and `logits_q` for the loss
+        """
 
-		logits = self.calculate_logits(joint_embedding)
-		q_embedding = grad_mul_const(text_embedding_total, 0.0) # don't backpropagate through question encoder
-		q_pred = self.c_1(q_embedding)
-		scores = logits * torch.sigmoid(q_pred)
+        logits = self.calculate_logits(joint_embedding)
+        q_embedding = grad_mul_const(text_embedding_total, 0.0) # don't backpropagate through question encoder
+        q_pred = self.c_1(q_embedding)
+        scores = logits * torch.sigmoid(q_pred)
 
         return {"scores": scores}
 
