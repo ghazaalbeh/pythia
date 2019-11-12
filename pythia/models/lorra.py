@@ -7,8 +7,8 @@ from pythia.modules.layers import ClassifierLayer
 from block.models.networks.mlp import MLP
 
 
-@registry.register_model("MyModel")
-class MyMODEL(Pythia):
+@registry.register_model("lorra")
+class LoRRA(Pythia):
     def __init__(self, config, classif):
         super().__init__(config)
         self.c_1 = MLP(**classif)
