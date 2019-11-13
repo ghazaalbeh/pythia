@@ -72,7 +72,7 @@ class LoRRA(Pythia):
         """
 
         logits = self.calculate_logits(joint_embedding)
-        q_embedding = grad_mul_const(text_embedding_total, 0.0) # don't backpropagate through question encoder
+        q_embedding = grad_mul_const(context_embedding_total, 0.0) # don't backpropagate through question encoder
         q_pred = self.c_1(q_embedding)
         scores = logits * torch.sigmoid(q_pred)
 
