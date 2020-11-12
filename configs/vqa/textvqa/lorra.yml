@@ -29,6 +29,16 @@ model_attributes:
     num_context_features: 1
     context_feature_dim: 300
     image_feature_dim: 2048
+    image_height : 10
+    image_width : 15
+    in_image_dim : 512
+    embed_dim_txt : 300
+    embed_dim_nmn : 300
+    num_vocab_txt: 1000
+    num_vocab_nmn: 1000
+    out_num_choices: 1000
+    max_layout_len : 1000
+    hidden_size : 512
     context_max_len: 50
     classifier:
       type: logit

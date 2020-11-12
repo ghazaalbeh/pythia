@@ -2,26 +2,32 @@
 import torch
 import torch.nn as nn
 import sys
-from Attention2 import *
-from module_net import *
+import yaml
+import argparse
+from pythia.models.Attention2 import *
+from pythia.models.module_net import *
+from pythia.models.layout_assembler import Assembler
 
-from utils.utils import unique_columns
+from pythia.utils.utils import unique_columns
 
 from pythia.common.registry import registry
 from pythia.models.pythia import Pythia
 from pythia.modules.layers import ClassifierLayer
 
+from pythia.models.data_reader import DataReader
+from torch import optim
+
+vocab_layout_file = os.path.join("pythia/dataa", "vocab_layout_file.txt")
+assembler = Assembler(vocab_layout_file)
 
 @registry.register_model("lorra")
 class LoRRA(Pythia):
     def __init__(self, config, num_vocab_txt, num_vocab_nmn, out_num_choices,
                 embed_dim_nmn, embed_dim_txt, image_height, image_width, in_image_dim,
-                hidden_size, assembler, layout_criterion, answer_criterion,max_layout_len, num_layers=1, decoder_dropout=0,**kwarg):
+                hidden_size, assembler,max_layout_len, num_layers=1, decoder_dropout=0,**kwarg):
         super().__init__(config)
 
         self.assembler = assembler
-        self.layout_criterion = layout_criterion
-        self.answer_criterion = answer_criterion
 
         ##initatiate attentionSeq2seq
         mySeq2seq = attention_seq2seq(myEncoder, myDecoder)

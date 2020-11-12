@@ -1,5 +1,5 @@
 
-from models.modules import *
+from pythia.models.modules import *
 
 function2module = {
     'filter_color': FilterModule,

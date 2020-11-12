@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from models.modules import *
+from pythia.models.modules import *
 from torch.autograd import Variable
 
 
