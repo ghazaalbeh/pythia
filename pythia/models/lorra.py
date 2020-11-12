@@ -2,8 +2,8 @@
 import torch
 import torch.nn as nn
 import sys
-from models.Attention2 import *
-from models.module_net import *
+from Attention2 import *
+from module_net import *
 
 from utils.utils import unique_columns
 
