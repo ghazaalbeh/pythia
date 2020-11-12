@@ -4,6 +4,7 @@ import torch.nn as nn
 import sys
 import yaml
 import argparse
+import os
 from pythia.models.Attention2 import *
 from pythia.models.module_net import *
 from pythia.models.layout_assembler import Assembler
