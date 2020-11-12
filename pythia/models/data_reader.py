@@ -6,7 +6,7 @@ import threading
 import queue
 import numpy as np
 
-from Utils import text_processing
+from pythia.models.text_processing import *
 
 class BatchLoaderClevr:
     def __init__(self, imdb,image_feat_dir, data_params):
