@@ -18,8 +18,8 @@ from pythia.modules.layers import ClassifierLayer
 from pythia.models.data_reader import DataReader
 from torch import optim
 
-vocab_layout_file = os.path.join("/project/6005046/behboud/pythia/pythia/dataa", "vocab_layout_file.txt")
-assembler = Assembler(vocab_layout_file)
+##vocab_layout_file = os.path.join("/project/6005046/behboud/pythia/pythia/dataa", "vocab_layout_file.txt")
+assembler = Assembler("../dataa/vocab_layout_file.txt")
 
 @registry.register_model("lorra")
 class LoRRA(Pythia):
